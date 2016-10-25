@@ -1,107 +1,149 @@
-"map
+"-------- plugin {{{
+"------------------------------------------------------
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'vim-airline/vim-airline'
+
+Plugin 'Shougo/unite.vim'
+
+Plugin 'Shougo/vimproc.vim'
+
+Plugin 'Valloric/YouCompleteMe'
+
+Plugin 'SirVer/ultisnips'
+
+Plugin 'honza/vim-snippets'
+
+Plugin 'scrooloose/nerdcommenter'
+
+Plugin 'godlygeek/tabular'
+
+"Plugin 'rust-lang/rust.vim'
+
+"Plugin 'terryma/vim-multiple-cursors'
+
+Plugin 'hynek/vim-python-pep8-indent'
+
+Plugin 'Shougo/vimfiler.vim'
+
+"Plugin 'pangloss/vim-javascript'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+"}}}
+"-------- normal set {{{
+"------------------------------------------------------
+"http://stackoverflow.com/questions/8583028/vim-e518-unknown-option
+set nomodeline
+set nu
+"set cindent
+set autoindent
+"set smartindent
+"set noexpandtab
+syntax on
+let python_highlight_all=1
+set tabstop=4
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set fileformat=unix
+set encoding=utf-8
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936,big5,euc-jp,euc-kr,latin1
+set fileencoding=utf-8
+" coderwall.com/p/j9wnfw/vim-tmux-system-clipboard
+set clipboard=unnamed
+colorscheme solarized
+"no temp or backup files
+set noswapfile
+set nobackup
+set nowritebackup
+
+"}}}
+"-------- key map {{{
+"------------------------------------------------------
 let mapleader=','
 imap jj <ESC>
-noremap <leader>n :bn<CR>
-noremap <leader>p :bp<CR>
 vmap ,, <ESC>
 nmap ,, <ESC>
+noremap <leader>n :bn<CR>
+noremap <leader>p :bp<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 noremap <c-k> <c-w>k
 noremap <c-j> <c-w>j
 noremap <c-h> <c-w>h
 noremap <c-l> <c-w>l
+" Fast reloading the .vimrc
+map <silent> <leader>ss :source ~/.vimrc<CR>
+" Fast editing the .vimrc
+map <silent> <leader>ee :e ~/.vimrc<CR>
 
-"vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-"alternatively, pass a path where Vundle should install plugin
-"call vundel#begin('~/some/path/here')
+"}}}
+"-------- folding {{{
+"------------------------------------------------------
+" enable folding; http://vim.wikia.com/wiki/Folding
+set foldmethod=marker
 
-Plugin 'VundleVim/Vundle.vim'
+" fold color
+hi Folded cterm=bold ctermfg=DarkBlue ctermbg=none
+hi FoldColumn cterm=bold ctermfg=DarkBlue ctermbg=none
 
-"Plugin 'davidhalter/jedi-vim'
+"refocus folds; close any other fold except the one that you are on
+nnoremap ,z zMzvzz
 
-Plugin 'vim-airline/vim-airline'
+"python folding
+au BufNewFile,BufRead *.py set foldmethod=indent 
+au BufNewFile,BufRead *.py set foldlevel=99
+"au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
+"au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /\s\+$/
 
-Plugin 'ervandew/supertab'
-
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-
-"Plugin 'SirVer/ultisnips'
-
-Plugin 'honza/vim-snippets'
-
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimproc.vim'
-
-call vundle#end()
-filetype plugin indent on
-" To ignore plugin indent changes, instead use:
-" "filetype plugin on
-" "
-" " Brief help
-" " :PluginList       - lists configured plugins
-" " :PluginInstall    - installs plugins; append `!` to update or just
-" :PluginUpdate
-" " :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" " :PluginClean      - confirms removal of unused plugins; append `!` to
-" auto-approve removal
-" "
-" " see :h vundle for more details or wiki for FAQ
-" " Put your non-Plugin stuff after this line
-
-"normal
-"set completeopt=menu
-"set number
-"Fast reloading of the .vimrc
-map <silent> <leader>ss :source ~/.vimrc<cr>
-"Fast editing of .vimrc
-map <silent> <leader>ee :e ~/.vimrc<cr>
-set pastetoggle=<F10>
-set tabstop=4
-set expandtab
-set shiftwidth=4
-syntax on
-syntax enable
-filetype on
-set history=1000
-set nocompatible
-set backspace=indent,eol,start
-set softtabstop=4
-"set autoindent
-set smartindent
-set encoding=utf-8
-set fileencodings=utf-8,cp936,gb18030,gbk,ucs-bom,utf-16
-set fileencoding=utf-8
-set termencoding=utf-8
-set nobackup
-set noundofile
-filetype on
-set formatoptions-=ro
-"-r: 按回车不会添加注释 -o 按o不会添加注释 -c:重新格式化长注释行不会添加注释
-
-"jedi-vim
-"vim-airline
-let g:airline#extensions#tabline#enabled = 1
+"}}}
+"-------- vim-airline {{{
+"------------------------------------------------------
+let g:airline#extensions#tabline#enabled=1
 set laststatus=2
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#left_sep=' '
+let g:airline#extensions#tabline#left_alt_sep='|'
 
-"suptab
-"let g:SuperTabDefaultCompletionType = "context"
+"}}}
+"-------- ultisnips {{{
+"------------------------------------------------------
+"let g:UltiSnipsExpandTrigger="<c-a>"
+"let g:UltiSnipsJumpForwordTrigger="<c-a>"
 
-"ultisnips
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-"inoremap <c-x><c-k> <c-x><c-k>
+"http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
+"let g:UltiSnipsExpandTrigger="<c-j>"
+"http://chauncey.io/ultisnips-youcompleteme-now-if-i-can-just-get-you-two-to-cooperate/
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
-"snippet
-"unite
+"}}}
+"-------- unite {{{
+"------------------------------------------------------
 let g:unite_enable_auto_select=0
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
@@ -200,10 +242,10 @@ let g:unite_source_menu_menus.recommand = {
             \     'description' : 'RE Command',
             \ }
 let g:unite_source_menu_menus.recommand.command_candidates = [
-            \   ['del ^M', '%s/\r//g'],
-            \   ['transform tab to space', '%retab! %'],
-            \   ['del <space> before line', '%s/^\s\+//'],
-            \   ['del <space> after line', '%s/\s\+$//'],
+            \   ['1del ^M', '%s/\r//g'],
+            \   ['2transform tab to space', '%retab! %'],
+            \   ['3del <space> before line', '%s/^\s\+//'],
+            \   ['4del <space> after line', '%s/\s\+$//'],
             \ ]
 " Set "-no-quit" automatically in grep unite source.
 call unite#custom#profile('source/grep', 'context', {
@@ -232,6 +274,11 @@ call unite#custom#source('file_rec,file_rec/async,file_mru,file,grep',
             \ '\.o$', '\.out$', '\.obj$', '\.rbc$', '\.rbo$', '\.gem$',
             \ '\.zip$', '\.tar\.gz$', '\.tar\.bz2$', '\.rar$', '\.tar\.xz$'
             \ ], '\|'))
+
+" https://www.reddit.com/r/vim/comments/2fnbrq/question_about_unite/
+call unite#custom#source('file_rec,file_rec/async,file_mru,file,grep',
+            \ 'ignore_globs', ['build/**', 'node_modules/**']) 
+
 nnoremap [unite] <Nop>
 " ;f Fuzzy Find Everything
 " " files, Buffers, recursive async file search
@@ -293,3 +340,58 @@ call unite#custom#profile('default', 'context', {
             \   'prompt_direction': 'top',
             \ })
 
+"}}}
+"-------- ycm {{{
+"------------------------------------------------------
+"http://blog.csdn.net/leaf5022/article/details/21290509
+let g:ycm_error_symbol='>>'
+let g:ycm_warning_symbol='>*'
+
+let g:ycm_global_ycm_extra_conf='~/.ycm_global_ycm_extra_conf'
+let g:ycm_collect_identifiers_from_tags_files=1
+let g:ycm_seed_identifiers_with_syntax=1
+set completeopt-=preview
+let g:ycm_confirm_extra_conf=0
+let g:ycm_cache_omnifunc=0
+let g:ycm_complete_in_comments=1
+let g:ycm_min_num_of_completion=1
+let g:ycm_use_ultisnips_completer=1
+
+"http://stackoverflow.com/questions/24720587/vim-with-youcompleteme-and-markdown
+let g:ycm_filetype_blacklist={}
+
+"for rust
+let g:ycm_rust_src_path='/usr/local/rust/rustc-1.10.0/src'
+
+"for python
+let g:ycm_python_binary_path='/usr/local/bin/python'
+
+"}}}
+"-------- nerdcommenter {{{
+"------------------------------------------------------
+let g:NERDSpaceDelims=1
+"}}}
+"-------- tabular {{{
+"------------------------------------------------------
+nnoremap <leader>d :Tabularize /:<CR>
+nnoremap <leader>s :Tabularize /=><CR>
+"}}}
+"-------- rust {{{
+"------------------------------------------------------
+"let g:rustfmt_autosave=1
+"}}}
+"-------- vim-multiple-cursors {{{
+"------------------------------------------------------
+let g:multi_cursor_use_default_mapping=0
+" Map start key separately from next key
+let g:multi_cursor_start_key='<C-i>'
+" Default mapping
+let g:multi_cursor_next_ket='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<ESC>'
+"}}}
+"-------- vimfiler {{{
+"------------------------------------------------------
+nnoremap <leader>a :<C-u>VimFilerExplorer<CR>
+"}}}
