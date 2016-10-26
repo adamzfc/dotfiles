@@ -361,12 +361,12 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:ycm_error_symbol='>>'
 let g:ycm_warning_symbol='>*'
 
-let g:ycm_global_ycm_extra_conf='~/.ycm_global_ycm_extra_conf'
-let g:ycm_collect_identifiers_from_tags_files=1
-let g:ycm_seed_identifiers_with_syntax=1
+"let g:ycm_global_ycm_extra_conf='~/.ycm_global_ycm_extra_conf'
+"let g:ycm_collect_identifiers_from_tags_files=1
+"let g:ycm_seed_identifiers_with_syntax=1
 set completeopt-=preview
-let g:ycm_confirm_extra_conf=0
-let g:ycm_cache_omnifunc=0
+"let g:ycm_confirm_extra_conf=0
+"let g:ycm_cache_omnifunc=0
 let g:ycm_complete_in_comments=1
 let g:ycm_min_num_of_completion=1
 let g:ycm_use_ultisnips_completer=1
@@ -378,7 +378,7 @@ let g:ycm_filetype_blacklist={}
 "let g:ycm_rust_src_path='/usr/local/rust/rustc-1.10.0/src'
 
 "for python
-let g:ycm_python_binary_path='/usr/local/bin/python'
+"let g:ycm_python_binary_path='/usr/local/bin/python'
 
 "}}}
 "-------- nerdcommenter {{{
