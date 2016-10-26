@@ -1,0 +1,26 @@
+#-------- Configurations {{{
+#------------------------------------------------------
+cfg-aliasrc() { $EDITOR ~/.aliasrc ;}
+cfg-bashrc() { $EDITOR ~/.bashrc ;}
+cfg-gitignore() { $EDITOR ~/.gitignore ;}
+cfg-group() { sudo $EDITOR /etc/group ;}
+cfg-grub() { sudo $EDITOR /etc/default/grub ;}
+cfg-hosts() { sudo $EDITOR /etc/hosts ;}
+cfg-pastebinit() { $EDITOR ~/.pastebinit.xml ;}
+cfg-profile() { $EDITOR ~/.profile ;}
+cfg-ssh-client() { sudo $EDITOR /etc/ssh/ssh_config ;}
+cfg-ssh-daemon() { sudo $EDITOR /etc/ssh/sshd_config ;}
+cfg-tmuxrc() { $EDITOR ~/.tmux.conf ;}
+cfg-vimrc() { $EDITOR ~/.vimrc ;}
+cfg-w3m() { $EDITOR ~/.w3m/config ;}
+cfg-w3m-keymap() { $EDITOR ~/.w3m/keymap ;}
+cfg-zshrc() { $EDITOR ~/.zshrc ;}
+cfg-reloadzshrc() { source ~/.zshrc ;}
+cfg-privoxyconfig() { $EDITOR /usr/local/etc/privoxy/config ;}
+#}}}
+#-------- Functions {{{
+#------------------------------------------------------
+fun-transfer() { if [ $# -eq 0 ]; then echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi 
+tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }
+
+#}}}
