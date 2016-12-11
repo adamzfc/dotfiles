@@ -410,3 +410,9 @@ let g:NERDSpaceDelims=1
 "------------------------------------------------------
 " nnoremap <leader>a :<C-u>VimFilerExplorer<CR>
 "}}}
+"-------- vim-markdwon {{{
+"------------------------------------------------------
+"https://github.com/plasticboy/vim-markdown
+"disable folding
+let g:vim_markdown_folding_disabled=1
+"}}}
