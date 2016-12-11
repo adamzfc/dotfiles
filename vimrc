@@ -145,15 +145,16 @@ let g:airline#extensions#tabline#left_alt_sep='|'
 "}}}
 "-------- ultisnips {{{
 "------------------------------------------------------
+
 "let g:UltiSnipsExpandTrigger="<c-a>"
 "let g:UltiSnipsJumpForwordTrigger="<c-a>"
 
 "http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
 "let g:UltiSnipsExpandTrigger="<c-j>"
 "http://chauncey.io/ultisnips-youcompleteme-now-if-i-can-just-get-you-two-to-cooperate/
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" let g:UltiSnipsExpandTrigger="<c-j>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 "}}}
 "-------- unite {{{
@@ -358,27 +359,27 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 "-------- ycm {{{
 "------------------------------------------------------
 "http://blog.csdn.net/leaf5022/article/details/21290509
-let g:ycm_error_symbol='>>'
-let g:ycm_warning_symbol='>*'
+" let g:ycm_error_symbol='>>'
+" let g:ycm_warning_symbol='>*'
 
-"let g:ycm_global_ycm_extra_conf='~/.ycm_global_ycm_extra_conf'
-"let g:ycm_collect_identifiers_from_tags_files=1
-"let g:ycm_seed_identifiers_with_syntax=1
-set completeopt-=preview
-"let g:ycm_confirm_extra_conf=0
-"let g:ycm_cache_omnifunc=0
-let g:ycm_complete_in_comments=1
-let g:ycm_min_num_of_completion=1
-let g:ycm_use_ultisnips_completer=1
+" "let g:ycm_global_ycm_extra_conf='~/.ycm_global_ycm_extra_conf'
+" "let g:ycm_collect_identifiers_from_tags_files=1
+" "let g:ycm_seed_identifiers_with_syntax=1
+" set completeopt-=preview
+" "let g:ycm_confirm_extra_conf=0
+" "let g:ycm_cache_omnifunc=0
+" let g:ycm_complete_in_comments=1
+" let g:ycm_min_num_of_completion=1
+" let g:ycm_use_ultisnips_completer=1
 
-"http://stackoverflow.com/questions/24720587/vim-with-youcompleteme-and-markdown
-let g:ycm_filetype_blacklist={}
+" "http://stackoverflow.com/questions/24720587/vim-with-youcompleteme-and-markdown
+" let g:ycm_filetype_blacklist={}
 
-"for rust
-"let g:ycm_rust_src_path='/usr/local/rust/rustc-1.10.0/src'
+" "for rust
+" "let g:ycm_rust_src_path='/usr/local/rust/rustc-1.10.0/src'
 
-"for python
-"let g:ycm_python_binary_path='/usr/local/bin/python'
+" "for python
+" "let g:ycm_python_binary_path='/usr/local/bin/python'
 
 "}}}
 "-------- nerdcommenter {{{
@@ -387,8 +388,8 @@ let g:NERDSpaceDelims=1
 "}}}
 "-------- tabular {{{
 "------------------------------------------------------
-nnoremap <leader>d :Tabularize /:<CR>
-nnoremap <leader>s :Tabularize /=><CR>
+" nnoremap <leader>d :Tabularize /:<CR>
+" nnoremap <leader>s :Tabularize /=><CR>
 "}}}
 "-------- rust {{{
 "------------------------------------------------------
@@ -396,16 +397,16 @@ nnoremap <leader>s :Tabularize /=><CR>
 "}}}
 "-------- vim-multiple-cursors {{{
 "------------------------------------------------------
-let g:multi_cursor_use_default_mapping=0
-" Map start key separately from next key
-let g:multi_cursor_start_key='<C-i>'
-" Default mapping
-let g:multi_cursor_next_ket='<C-n>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<ESC>'
+" let g:multi_cursor_use_default_mapping=0
+" " Map start key separately from next key
+" let g:multi_cursor_start_key='<C-i>'
+" " Default mapping
+" let g:multi_cursor_next_ket='<C-n>'
+" let g:multi_cursor_prev_key='<C-p>'
+" let g:multi_cursor_skip_key='<C-x>'
+" let g:multi_cursor_quit_key='<ESC>'
 "}}}
 "-------- vimfiler {{{
 "------------------------------------------------------
-nnoremap <leader>a :<C-u>VimFilerExplorer<CR>
+" nnoremap <leader>a :<C-u>VimFilerExplorer<CR>
 "}}}

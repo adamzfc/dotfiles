@@ -114,11 +114,9 @@ cfg-history() { $EDITOR $HISTFILE ;}
 # }}}
 #-------- PATH set {{{
 #------------------------------------------------------
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/adamzfc/bin:/Applications/Android Studio.app/Contents/gradle/gradle-2.8/bin"
-export PATH=/Users/adamzfc/Library/Android/sdk/platform-tools/:$PATH
-export PATH=/usr/local/apache-tomcat-8.0.36/bin/:$PATH
-export PATH=/Users/adamzfc/Library/Android/sdk/:$PATH
-source /Users/adamzfc/.bash_profile
+export PATH=~/Library/Android/sdk/platform-tools/:$PATH
+export PATH=~/Library/Android/sdk/:$PATH
+source ~/.bash_profile
 
 # }}}
 #-------- alias set {{{
