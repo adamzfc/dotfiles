@@ -7,3 +7,4 @@ ln -s $(pwd -P)/vimrc ~/.vimrc
 ln -s $(pwd -P)/zshrc ~/.zshrc
 ln -s $(pwd -P)/privoxy ~/.privoxy
 ln -s $(pwd -P)/aliasrc ~/.aliasrc
+ln -s $(pwd -P)/npmrc ~/.npmrc
