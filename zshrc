@@ -116,6 +116,7 @@ cfg-history() { $EDITOR $HISTFILE ;}
 #------------------------------------------------------
 export PATH=~/Library/Android/sdk/platform-tools/:$PATH
 export PATH=~/Library/Android/sdk/:$PATH
+export PATH=~/bin/:$PATH
 source ~/.bash_profile
 
 # }}}

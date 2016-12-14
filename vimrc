@@ -96,6 +96,14 @@ set nobackup
 set nowritebackup
 
 "}}}
+"-------- custom function {{{
+"------------------------------------------------------
+" http://vim.wikia.com/wiki/Get_the_name_of_the_current_file
+function! OpenWithChrome()
+    let path = expand('%:p')
+    execute '!open -a "Google Chrome"' path
+endfunction
+"}}}
 "-------- key map {{{
 "------------------------------------------------------
 let mapleader=','
@@ -114,6 +122,7 @@ noremap <c-l> <c-w>l
 map <silent> <leader>ss :source ~/.vimrc<CR>
 " Fast editing the .vimrc
 map <silent> <leader>ee :e ~/.vimrc<CR>
+map <silent> <leader>o :call OpenWithChrome()<CR>
 
 "}}}
 "-------- folding {{{
